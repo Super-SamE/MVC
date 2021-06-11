@@ -1,10 +1,3 @@
-<?php
-
-    if (isset($_SESSION['user'])) {
-        header('Location: ?class=Maincontroller&option=tasklist');
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

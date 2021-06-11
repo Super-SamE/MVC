@@ -1,7 +1,7 @@
 <?php
 
     require_once 'app/lib/pdoconnect.php';
-    require 'app/lib/Dev.php';
+    //require 'app/lib/Dev.php';
     
     spl_autoload_register(function ($class) {
         if (file_exists("app/controller/". $class .".php")) {
@@ -11,7 +11,7 @@
         }
     });
 
-    if(!empty($_GET['class'] && $_GET['option'])) {
+    if(!empty($_GET['class']) && !empty($_GET['option'])) {
         $class = $_GET['class'];
         $option = $_GET['option']; 
     } else {

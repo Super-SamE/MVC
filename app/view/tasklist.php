@@ -1,10 +1,3 @@
-<?php
-
-    if(!isset($_SESSION['user'])){
-        header('Location: ?class=Maincontroller&option=getformauth');
-    }
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +28,7 @@
                             <div class="add-task">
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12">
-                                        <form id="form1" method="POST">
+                                        <form id="form1" method="POST" action="?class=Maincontroller&option=tasklist">
                                             <div class="roow">
                                                 <input type="text" placeholder="Enter text..." class="form-controlo" name="nametask">
                                                 <button type="submit" name="addtask" class="btn btn-darkk">Add Task</button>
@@ -49,54 +42,54 @@
                                 </div>
                             </div>
                             <?php
-
-                            /*    $addtask = $_POST['addtask'];
+                                require_once 'app/view/outtask.php';
+                                /*$addtask = $_POST['addtask'];
                                 $nametask = $_POST['nametask'];
                                 $readyall = $_POST['readyall'];
-                                $removeall = $_POST['removeall'];
+                                $removeall = $_POST['removeall'];*/
 
-                                if(isset($addtask)) {
+                                /*if(isset($addtask)) {
                                 $nametask = htmlspecialchars($_POST['nametask']);
                                 $new_addtask = "INSERT INTO `tasks`(`user_id`, `description`, `created_at`, `status`) VALUES (:userid, :nametask, '1', '0')";
                                 $newtask = $pdo->prepare($new_addtask);
                                 $newtask->execute(['userid' => $_SESSION['user']['id'], 'nametask' => $nametask]);
-                                }
+                                }*/
 
-                                $readyidtask = $_GET['readyidtask'];
+                                /*$readyidtask = $_GET['readyidtask'];
                                 $delidtask = $_GET['delidtask'];
                                 $ready = $_GET['ready'];
-                                $remove = $_GET['remove'];
+                                $remove = $_GET['remove'];*/
 
-                                $task_removeall = "UPDATE `tasks` SET `status` = '0' WHERE `tasks`. `id` = :remove";
+                                /*$task_removeall = "UPDATE `tasks` SET `status` = '0' WHERE `tasks`. `id` = :remove";
                                 $task_remove = $pdo->prepare($task_removeall);
-                                $task_remove->execute(['remove' => $remove]);
+                                $task_remove->execute(['remove' => $remove]);*/
 
-                                $task_readyall = "UPDATE `tasks` SET `status` = '1' WHERE `tasks`. `id` = :ready";
+                                /*$task_readyall = "UPDATE `tasks` SET `status` = '1' WHERE `tasks`. `id` = :ready";
                                 $task_ready = $pdo->prepare($task_readyall);
-                                $task_ready->execute(['ready' => $ready]);
+                                $task_ready->execute(['ready' => $ready]);*/
 
-                                $task_del = "DELETE FROM `tasks` WHERE `tasks`.`id` = :delidtask";
+                                /*$task_del = "DELETE FROM `tasks` WHERE `tasks`.`id` = :delidtask";
                                 $delete = $pdo->prepare($task_del);
-                                $delete->execute(['delidtask' => $delidtask]);
+                                $delete->execute(['delidtask' => $delidtask]);*/
 
-                                $outtask = "SELECT * FROM `tasks` WHERE `user_id` = :userid";
+                                /*$outtask = "SELECT * FROM `tasks` WHERE `user_id` = :userid";
                                 $usertask = $pdo->prepare($outtask);
                                 $usertask->execute(['userid' => $_SESSION['user']['id']]);
-                                $usertaskout = $usertask->fetch();
+                                $usertaskout = $usertask->fetch();*/
 
-                                if(isset($readyall)) {
+                                /*if(isset($readyall)) {
                                     $readyupdate = "UPDATE `tasks` SET `status` = '1' WHERE `user_id` = :userid";
                                     $update = $pdo->prepare($readyupdate);
                                     $update->execute(['userid' => $_SESSION['user']['id']]);
-                                }
+                                }*/
 
-                                if(isset($removeall)) {
+                                /*if(isset($removeall)) {
                                     $removetask = "DELETE FROM `tasks` WHERE `tasks`.`user_id` = :userid";
                                     $remove = $pdo->prepare($removetask);
                                     $remove->execute(['userid' => $_SESSION['user']['id']]);
-                                }
+                                }*/
 
-                                while($usertaskout = $usertask->fetch()) {
+                                /*while($usertaskout = $usertask->fetch()) {
                                     if($usertaskout['status']==0) {
                                         echo "
                                             <div class='tasks'>
@@ -142,7 +135,7 @@
                                     }
                                 }
 
-                               */ 
+                                */
                             ?>
                         </div>
                     </div>
