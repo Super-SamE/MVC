@@ -68,7 +68,7 @@
 
         }
 
-        public function ready() {
+        public function ready($ready) {
 
             global $pdo;
 
@@ -78,7 +78,7 @@
 
         }
 
-        public function remove() {
+        public function remove($remove) {
 
             global $pdo;
 
@@ -88,7 +88,7 @@
 
         }
 
-        public function delidtask() {
+        public function delidtask($delidtask) {
 
             global $pdo;
 
@@ -98,26 +98,26 @@
 
         }
 
-        public function readyall() {
+        public function readyall($userid, $readyall) {
 
             global $pdo;
 
             if(isset($readyall)) {
                 $readyupdate = "UPDATE `tasks` SET `status` = '1' WHERE `user_id` = :userid";
                 $update = $pdo->prepare($readyupdate);
-                $update->execute(['userid' => $_SESSION['user']['id']]);
+                $update->execute(['userid' => $userid]);
             }
 
         }
 
-        public function removeall() {
+        public function removeall($userid, $removeall) {
 
             global $pdo;
 
             if(isset($removeall)) {
                 $removetask = "DELETE FROM `tasks` WHERE `tasks`.`user_id` = :userid";
                 $remove = $pdo->prepare($removetask);
-                $remove->execute(['userid' => $_SESSION['user']['id']]);
+                $remove->execute(['userid' => $userid]);
             }
 
         }
